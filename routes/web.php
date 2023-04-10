@@ -13,8 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+// we can use both methods to call the UserController
+// use \App\Http\Controllers\UserController;
 Route::get('/users', [\App\Http\Controllers\UserController::class, 'index']);
 Route::get('/', function () {
-    return view('welcome');
+    return view('user.index');
 });
+
+Route::post('/users/filter/', [\App\Http\Controllers\UserController::class, 'userFilter'])->name('users.filter');
+
 
